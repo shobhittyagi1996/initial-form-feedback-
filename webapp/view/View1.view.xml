@@ -1,0 +1,135 @@
+<mvc:View
+    controllerName="com.kpo.feedbackformforgoodsupply.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:upload="sap.m.upload"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <uxap:ObjectPageLayout
+                id="ObjectPageLayout"
+                upperCaseAnchorBar="false"
+                showAnchorBar="true"
+                enableLazyLoading="true"
+            >
+                <uxap:sections>
+                    <uxap:ObjectPageSection
+                        id="_IDGenObjectPageSection1"
+                        showTitle="false"
+                    >
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection
+                                id="_IDGenObjectPageSubSection1"
+                                title="General Info "
+                            >
+                                <uxap:blocks>
+                                    <f:SimpleForm
+                                        id="_IDGenSimpleForm1"
+                                        editable="true"
+                                        layout="ResponsiveGridLayout"
+                                        labelSpanXL="4"
+                                        labelSpanL="8"
+                                        labelSpanM="4"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="0"
+                                        emptySpanL="0"
+                                        emptySpanM="0"
+                                        emptySpanS="0"
+                                        columnsXL="3"
+                                        columnsL="2"
+                                        columnsM="2"
+                                        singleContainerFullSize="false"
+                                    >
+                                        <Label
+                                            id="_IDGenLabel23"
+                                            text="Customer"
+                                        />
+                                        <Input
+                                            value="KPO"
+                                            editable="false"
+                                        />
+                                    </f:SimpleForm>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection
+                                id="_IDGenObjectPageSubSection2"
+                                title=""
+                            >
+                                <uxap:blocks>
+                                     <Table items="{myModel>/}">
+            <columns>
+                <Column width="70%" />
+                <Column />
+            </columns>
+            <ColumnListItem>
+                <Text text="{myModel>QuestionText}" />
+
+                <FlexBox>
+                    <items>
+                        <RadioButtonGroup
+                            columns="2"
+                            visible="{=${myModel>AnswerType} === 'RB1'}"
+                        >
+                            <RadioButton text="Yes" />
+                            <RadioButton text="No" />
+                        </RadioButtonGroup>
+                       
+                        <RadioButtonGroup
+                            columns="3"
+                            visible="{=${myModel>AnswerType} === 'RB2'}"
+                        >
+                            <RadioButton text="Yes" />
+                            <RadioButton text="No" />
+                            <RadioButton text="NA" />
+                        </RadioButtonGroup>
+                        <Input
+                       
+                           visible="{=${myModel>InputFieldValue} === ''}"
+                            value="{myModel>InputFieldValue}"
+                        />
+                        <TextArea
+                       
+                           visible="{=${myModel>InputFieldValue} === 'ta'}"
+                            value=""
+                        />
+                    </items>
+                </FlexBox>
+            </ColumnListItem>
+        </Table>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                </uxap:sections>
+            </uxap:ObjectPageLayout>
+        </content>
+        <footer>
+            <OverflowToolbar id="_IDGenOverflowToolbar2">
+                <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+
+                <Button
+                    id="_IDGenButton71"
+                    text="Submit"
+                    press="onSubmit"
+                    type="Emphasized"
+                />
+                <Button
+                    id="_IDGenButton8"
+                    text="Cancel"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
